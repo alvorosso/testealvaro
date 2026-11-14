@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Ambiente</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bar">
+    <button id="rot" hidden>↻ Deitar</button>
+    <a id="ext" target="_blank" rel="noopener">↗ Navegador</a>
+    <a href="index.html">✕</a>
+  </div>
+  <div class="viewer"><iframe id="frame" allow="fullscreen; clipboard-read; clipboard-write"></iframe></div>
+
+  <script src="sites.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const site = SITES.find(s => s.id === params.get("s"));
+    if (!site) { location.replace("index.html"); }
+
+    document.title = site.name;
+    document.getElementById("frame").src = site.url;
+    document.getElementById("ext").href = site.url;
+
+    const rot = document.getElementById("rot");
+
+    async function landscape(on) {
+      try {
+        if (on) {
+          await document.documentElement.requestFullscreen();
+          await screen.orientation.lock("landscape");
+        } else {
+          screen.orientation.unlock();
+          if (document.fullscreenElement) await document.exitFullscreen();
+        }
+      } catch (e) {
+        alert("Seu navegador não permitiu girar a tela. Use o botão ↗ Navegador.");
+      }
+    }
+
+    if (site.rotate) {
+      rot.hidden = false;
+      rot.onclick = () => landscape(!document.fullscreenElement);
+      // "Abrir deitado" precisa de um toque do usuário para ativar tela cheia
+      if (params.get("land")) rot.textContent = "↻ Toque para deitar";
+    }
+  </script>
+</body>
+</html>
