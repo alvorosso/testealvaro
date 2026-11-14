@@ -65,3 +65,23 @@ h1 { font-size: 1.4rem; text-align: center; margin: 24px 0; }
   text-decoration: none;
   backdrop-filter: blur(6px);
 }
+
+/* ---- gerenciar atalhos ---- */
+.toolbar { display: flex; gap: 8px; max-width: 480px; margin: 0 auto 16px; }
+.toolbar .btn { margin: 0; }
+.btn.danger { background: #b91c1c; }
+.empty { grid-column: 1 / -1; text-align: center; color: #94a3b8; }
+.foot { text-align: center; margin: 24px 0; font-size: .8rem; color: #64748b; }
+.link { background: none; border: 0; color: #94a3b8; text-decoration: underline; font-size: inherit; cursor: pointer; }
+
+dialog { border: 0; border-radius: 20px; background: #1e293b; color: #f1f5f9; width: min(92vw, 400px); padding: 20px; }
+dialog::backdrop { background: #000a; }
+dialog h2 { font-size: 1.1rem; margin-bottom: 12px; }
+dialog label { display: block; font-size: .85rem; color: #94a3b8; margin-top: 12px; }
+dialog input:not([type=checkbox]) {
+  display: block; width: 100%; margin-top: 4px; padding: 12px;
+  border: 1px solid #334155; border-radius: 10px; background: #0f172a; color: #f1f5f9; font-size: 1rem;
+}
+dialog .check { display: flex; align-items: center; gap: 8px; color: #f1f5f9; }
+dialog .row { display: flex; gap: 8px; margin-top: 16px; }
+dialog .row .btn { margin: 0; }

@@ -12,8 +12,31 @@
 <body>
   <main>
     <h1>Meus Ambientes</h1>
+    <div class="toolbar">
+      <button class="btn" id="add">+ Novo</button>
+      <button class="btn alt" id="edit">Editar</button>
+    </div>
     <div class="grid" id="grid"></div>
+    <p class="foot">
+      <button class="link" id="backup">Copiar backup</button> ·
+      <button class="link" id="restore">Restaurar</button>
+    </p>
   </main>
+
+  <dialog id="dlg">
+    <form id="form">
+      <h2>Novo ambiente</h2>
+      <label>Nome <input name="name" required maxlength="30" placeholder="Ex.: Painel"></label>
+      <label>Ícone (emoji) <input name="icon" maxlength="4" placeholder="🔗"></label>
+      <label>Endereço <input name="url" required inputmode="url" placeholder="painel.alvorosso.com.br"></label>
+      <label class="check"><input type="checkbox" name="rotate"> Mostrar opção "Abrir deitado"</label>
+      <div class="row">
+        <button type="button" class="btn alt" id="cancel">Cancelar</button>
+        <button type="submit" class="btn">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
   <script src="sites.js"></script>
   <script src="app.js"></script>
 </body>

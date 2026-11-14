@@ -1,5 +1,5 @@
 // Service worker mínimo: guarda os arquivos do app para abrir rápido e instalar no Android.
-const CACHE = "ambientes-v1";
+const CACHE = "ambientes-v2";
 const FILES = ["./", "index.html", "viewer.html", "style.css", "app.js", "sites.js",
                "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png"];
 

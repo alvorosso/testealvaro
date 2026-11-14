@@ -18,8 +18,8 @@
   <script src="sites.js"></script>
   <script>
     const params = new URLSearchParams(location.search);
-    const site = SITES.find(s => s.id === params.get("s"));
-    if (!site) { location.replace("index.html"); }
+    const site = loadSites().find(s => s.id === params.get("s"));
+    if (!site) { location.replace("index.html"); throw new Error("ambiente não encontrado"); }
 
     document.title = site.name;
     document.getElementById("frame").src = site.url;
