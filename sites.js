@@ -3,6 +3,7 @@
 const DEFAULT_SITES = [
   { id: "term", name: "Terminal", icon: "💻", url: "https://term.alvorosso.com.br", rotate: false },
   { id: "web",  name: "Web",      icon: "🌐", url: "https://web.alvorosso.com.br",  rotate: true },
+  { id: "files", name: "Arquivos", icon: "📁", url: "https://files.alvorosso.com.br", rotate: false },
 ];
 
 function loadSites() {
